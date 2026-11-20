@@ -374,6 +374,50 @@ section {
     }
 }
 
+/* Experience: zigzag timeline - items alternate left / right around a center line */
+.timeline.timeline-zigzag {
+    display: block;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background-color: var(--color-grey-5);
+    }
+
+    .timeline-item {
+        width: 50%;
+        border-left: 0;
+        margin-bottom: 3rem;
+
+        &:nth-child(odd) {
+            padding-left: 0;
+            padding-right: 3.5rem;
+            text-align: right;
+
+            .tl-icon {
+                left: auto;
+                right: -25px;
+            }
+        }
+
+        &:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 3.5rem;
+
+            .tl-icon {
+                left: -25px;
+            }
+        }
+
+        &:last-child { margin-bottom: 0; }
+    }
+}
+
 //Portfolios
 .port-text {
     padding: 2rem 0;

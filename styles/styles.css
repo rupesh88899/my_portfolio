@@ -981,3 +981,61 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
 }
+
+/* Experience: zigzag timeline - items alternate left / right around a center line */
+.timeline.timeline-zigzag {
+  display: block;
+  position: relative;
+}
+.timeline.timeline-zigzag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: var(--color-grey-5);
+}
+.timeline.timeline-zigzag .timeline-item {
+  width: 50%;
+  border-left: 0;
+  margin-bottom: 3rem;
+}
+.timeline.timeline-zigzag .timeline-item:nth-child(odd) {
+  padding-left: 0;
+  padding-right: 3.5rem;
+  text-align: right;
+}
+.timeline.timeline-zigzag .timeline-item:nth-child(odd) .tl-icon {
+  left: auto;
+  right: -25px;
+}
+.timeline.timeline-zigzag .timeline-item:nth-child(even) {
+  margin-left: 50%;
+  padding-left: 3.5rem;
+}
+.timeline.timeline-zigzag .timeline-item:nth-child(even) .tl-icon {
+  left: -25px;
+}
+.timeline.timeline-zigzag .timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .timeline.timeline-zigzag::before {
+    left: 0;
+  }
+  .timeline.timeline-zigzag .timeline-item:nth-child(odd),
+  .timeline.timeline-zigzag .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 3rem;
+    padding-right: 0;
+    text-align: left;
+  }
+  .timeline.timeline-zigzag .timeline-item:nth-child(odd) .tl-icon,
+  .timeline.timeline-zigzag .timeline-item:nth-child(even) .tl-icon {
+    left: -25px;
+    right: auto;
+  }
+}

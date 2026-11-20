@@ -267,6 +267,25 @@
     .timeline{
         grid-template-columns: repeat(1, 1fr);
     }
+
+    /* zigzag collapses back to a single left-aligned column */
+    .timeline.timeline-zigzag{
+        &::before{ left: 0; }
+        .timeline-item{
+            &:nth-child(odd),
+            &:nth-child(even){
+                width: 100%;
+                margin-left: 0;
+                padding-left: 3rem;
+                padding-right: 0;
+                text-align: left;
+                .tl-icon{
+                    left: -25px;
+                    right: auto;
+                }
+            }
+        }
+    }
     .main-title{
         h2{
             font-size: 3rem;
